@@ -12,6 +12,8 @@ prompt.start();
 // Get two properties from the user: username and email
 //  
 const conducir = function () {
+
+    console.log('\n\t INTRODUCA SU EDAD: \n');
     prompt.get(['edad'], function (err, result) {
         //
         // Log the results.
@@ -19,11 +21,10 @@ const conducir = function () {
         let edad = result.edad;
 
         if (edad < 18) {
-
-            console.log('Eres Menor de edad, no puede conducir');
+            console.log('\n\t Eres Menor de edad, no puede conducir \n');
         }
         else {
-            console.log('Eres Mayor de edad, Puede conducir');
+            console.log('\n\tEres Mayor de edad, Puede conducir\n');
         }
     });
 
@@ -37,24 +38,27 @@ const conducir = function () {
 
 const mustraCalificacion = function () {
 
+    console.log('\n \t INTRUDUC SU CALIFICACION DEL 0 AL 10 \n');
+
     prompt.get(['calificacion'], function (err, result) {
 
+        
         let calificacion = result.calificacion;
 
         if (calificacion >= 0 && calificacion < 3) {
-            console.log('\n Su calificacion es Muy deficiente \n');
+            console.log('\n\t Su calificacion es Muy deficiente \n');
         } else if (calificacion >= 3 && calificacion < 5) {
-            console.log('\n Su calificacion es Insuficiente \n');
+            console.log('\n\t Su calificacion es Insuficiente \n');
         } else if (calificacion >= 5 && calificacion <= 6) {
-            console.log('\n Su calificacion es Suficiente \n');
+            console.log('\n\t Su calificacion es Suficiente \n');
         } else if (calificacion >= 6 && calificacion <= 7) {
-            console.log('\n Su calificacion esta Bien \n');
+            console.log('\n \t Su calificacion esta Bien \n');
         } else if (calificacion >= 7 && calificacion <= 9) {
-            console.log('\n Su calificacion es Notable \n');
+            console.log('\n \t Su calificacion es Notable \n');
         } else if (calificacion >= 9 && calificacion <= 10) {
-            console.log('\n Su calificacion es Sobresaliente \n');
+            console.log('\n \tSu calificacion es Sobresaliente \n');
         } else {
-            console.log('\n el rango de Calificacion debe ser entre 0 y 10 \n Intruduca calificacion');
+            console.log('\n \t El rango de Calificacion debe ser entre 0 y 10 \n');
             mustraCalificacion();
         }
     });
@@ -69,11 +73,12 @@ por el estacionamiento de su vehículo, conociendo el  tiempo de
 estacionamiento en horas y minutos*/
 
 const costosPorEstacionamiento = function () {
+    console.log('\n\tINTRODUCA HORA DE ENTRADA Y SALIDA');
+    console.log('\t=================================== \n');
     prompt.get(['horaEntrada', 'horaSalida'], function (err, result) {
-        //
-        // Log the results.
-        //
+               
         let horaEntrada = parseInt(result.horaEntrada);
+    
         let horaSalida = parseInt(result.horaSalida)
 
 
@@ -88,9 +93,9 @@ const costosPorEstacionamiento = function () {
         totalHora = horaSalida - horaEntrada;
         horaEstacionado = totalHora * costo;
 
-        console.log('Total Hora Parqueado: ' + totalHora);
+        console.log('\n\tTotal Hora Parqueado: ' + totalHora);
 
-        console.log('Total a Pagar: ' + horaEstacionado);
+        console.log('\n\tTotal a Pagar: ' + horaEstacionado+"\n");
 
     });
 }
@@ -99,6 +104,8 @@ const costosPorEstacionamiento = function () {
 /**************************************************************************** */
 
 const numeroParImpar = parImpar = function () {
+
+    console.log('\n\nINTRODUZCA UN NUMERO PARA DETERMINAR SI ES POSITIVO O NEGATIVO\n');
     prompt.get(['numero'], function (err, result) {
         //
         // Log the results.
@@ -157,7 +164,7 @@ const PrecioEspecial = function () {
 
     });
 }
-//PrecioEspecial();
+ //PrecioEspecial();
 
 //************************************************************************ */
 const diametroGrosoRueda = function () {
@@ -186,4 +193,56 @@ const diametroGrosoRueda = function () {
     });
 
 }
-diametroGrosoRueda();
+//diametroGrosoRueda();
+
+
+const menu = function () {
+    console.clear(); 1
+    
+    console.log("\n \t\t SELECIONES UNA OPERACION A EJECUTAR DEL 1 AL 6:")
+    console.log("\t\t =============================================== \n")
+    console.log(" 1:  Saber si es mayor de 18 años para conducir: \n")
+    console.log(" 2:  Motrar la calificación según la nota:\n")
+    console.log(" 3:  Saber costo de estacionamiento a cobrar: \n")
+    console.log(" 4   Determinar si un número es o no es, par positivo: \n")
+    console.log(" 5:  Saber que descuendo ('15% o 10%') a aplicar por especial y unidad a regalar \n")
+    console.log(" 6:  Saber a que Vehiculo corresponde una rueda por su diametro: \n")
+
+
+    prompt.get(['opcion'], function (err, result) {
+        //
+        // Log the results.
+        //
+        console.log("\n 1:  Saber si es mayor de 18 años para conducir: \n")
+        console.log("\n 2:  Motrar la calificación según la nota:\n")
+        console.log("\n 3:  Saber costo de estacionamiento a cobrar: \n")
+        console.log("\  4   Determinar si un número es o no es, par positivo: \n")
+        console.log("\n 5:  Saber que descuendo ('15% o 10%') a aplicar por especial y unidad a regalar \n")
+        console.log("\n 6:  Saber a que Vehiculo corresponde una rueda por su diametro: \n")
+
+
+        let opcion = result.opcion;
+
+        if (opcion == 1) {
+            conducir();
+        }
+        else if (opcion == 2) {
+            mustraCalificacion();
+        } else if (opcion == 3) {
+            costosPorEstacionamiento();
+        } else if (opcion == 4) {
+            numeroParImpar();
+        } else if (opcion == 5) {
+            PrecioEspecial();
+        } else if (opcion == 6) {
+            diametroGrosoRueda();
+
+        } else{ 
+            console.log("\nElija una Opcion del 1 al 6\n");
+            menu();
+        }
+
+    });
+}
+
+menu();
