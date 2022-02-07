@@ -244,5 +244,4 @@ const menu = function () {
 
     });
 }
-
 menu();
